@@ -8,6 +8,10 @@ app = Flask(__name__)
 
 AUTH_TOKEN = os.getenv("AUTH_TOKEN")
 
+@app.route('/')
+def index():
+    return jsonify({'status':'OK', 'message':'Hello, World!'}), 200
+
 @app.route('/admin/data', methods=['GET'])
 def get_data():
     token = request.headers.get('Authorization', '')

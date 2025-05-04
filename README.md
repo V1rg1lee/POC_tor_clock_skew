@@ -56,7 +56,7 @@ To test the web server with Tor, run the following command:
 ```
 
 This will start the web server on port 8443. You can access it via 
-- the Tor browser using `http://<ONION_ADDRESS>:8443/admin/data`, this will reply "Unothorizes", because you need to send the request with the "Authorization" header with your cookie.
+- the Tor browser using `http://<ONION_ADDRESS>:8443/admin/data`, this will reply "Unothorizes", because you need to send the request with the "Authorization" header with your cookie. You can access `http://<ONION_ADDRESS>:8443` without the cookie.
 - with the command:
 ```bash
 python3 web/client.py
