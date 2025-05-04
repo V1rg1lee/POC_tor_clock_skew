@@ -19,7 +19,8 @@ HashedControlPassword 16:<YOUR_HASHED_PASSWORD>
 SocksPort 9050
 CookieAuthentication 1
 HiddenServiceDir /var/lib/tor/hs_admin/
-HiddenServicePort 8443 127.0.0.1:8443
+HiddenServiceVersion 3
+HiddenServicePort 80 unix:/var/lib/tor/hs_admin/flask.sock
 ```
 
 3. Generate a hashed password:
@@ -52,11 +53,11 @@ pip install -r requirements.txt
 
 To test the web server with Tor, run the following command:
 ```bash
-./launch_web.sh
+sudo ./launch_web.sh
 ```
 
-This will start the web server on port 8443. You can access it via 
-- the Tor browser using `http://<ONION_ADDRESS>:8443/admin/data`, this will reply "Unauthorized", because you need to send the request with the "Authorization" header with your cookie. You can access `http://<ONION_ADDRESS>:8443` without the cookie.
+This will start the web server in a unix socket, which is only accessible from the Tor network. You can access it via 
+- the Tor browser using `http://<ONION_ADDRESS>/admin/data`, this will reply "Unauthorized", because you need to send the request with the "Authorization" header with your cookie. You can access `http://<ONION_ADDRESS>` without the cookie.
 - with the command:
 ```bash
 python3 web/client.py

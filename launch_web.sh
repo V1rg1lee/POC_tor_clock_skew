@@ -37,7 +37,7 @@ else
   echo "Using existing .env."
 fi
 
+source env/bin/activate
 cd "$dir"
-
 echo "Starting server..."
-python3 server.py
+exec gunicorn --workers 2 --bind unix:/var/lib/tor/hs_admin/flask.sock wsgi:app

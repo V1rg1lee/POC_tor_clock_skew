@@ -18,7 +18,7 @@ def get_via_tor(path: str):
         'https': 'socks5h://127.0.0.1:9050'
     }
     headers = {'Authorization': f'Bearer {AUTH_TOKEN}'}
-    resp = session.get(f"http://{ONION_URL}:8443{path}", headers=headers, timeout=15)
+    resp = session.get(f"http://{ONION_URL}{path}", headers=headers, timeout=15)
     return resp
 
 def renew_identity(password):
