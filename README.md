@@ -18,6 +18,8 @@ ControlPort 9051
 HashedControlPassword 16:<YOUR_HASHED_PASSWORD>
 SocksPort 9050
 CookieAuthentication 1
+HiddenServiceDir /var/lib/tor/hs_admin/
+HiddenServicePort 8443 127.0.0.1:8443
 ```
 
 3. Generate a hashed password:
@@ -31,12 +33,17 @@ Replace `<YOUR_HASHED_PASSWORD>` in the `torrc` file with the output from the ab
 sudo systemctl restart tor
 ```
 
-5. Create a virtual environment:
+5. Copy the .onion address:
+```bash
+sudo cat /var/lib/tor/hs_admin/hostname
+```
+
+7. Create a virtual environment:
 ```bash
 python3 -m venv venv
 ```
 
-6. Install Python dependencies:
+7. Install Python dependencies:
 ```bash
 pip install -r requirements.txt
 ```
