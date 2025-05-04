@@ -38,7 +38,7 @@ sudo systemctl restart tor
 sudo cat /var/lib/tor/hs_admin/hostname
 ```
 
-7. Create a virtual environment:
+6. Create a virtual environment:
 ```bash
 python3 -m venv venv
 ```
@@ -47,3 +47,18 @@ python3 -m venv venv
 ```bash
 pip install -r requirements.txt
 ```
+
+## Web Server
+
+To test the web server with Tor, run the following command:
+```bash
+./launch_web.sh
+```
+
+This will start the web server on port 8443. You can access it via 
+- the Tor browser using `http://<ONION_ADDRESS>:8443/admin/data`, this will reply "Unothorizes", because you need to send the request with the "Authorization" header with your cookie.
+- with the command:
+```bash
+python3 web/client.py
+```
+This will send a request to the web server and print the response.
