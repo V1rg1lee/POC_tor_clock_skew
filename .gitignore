@@ -1,3 +1,5 @@
 *.cpython*
 .env
 env
+venv
+skew_demo/pcaps/*
