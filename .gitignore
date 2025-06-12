@@ -3,3 +3,4 @@
 env
 venv
 skew_demo/pcaps/*
+pcaps/*

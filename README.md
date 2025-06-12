@@ -63,3 +63,13 @@ This will start the web server in a unix socket, which is only accessible from t
 python3 web/client.py
 ```
 This will send a request to the web server and print the response.
+
+
+## Skew demo
+To run the skew demo, the web server must be running. Follow the previous steps to start the web server.
+
+The first step is to capture packets to the suspected device. You can use the `skew_demo/normal_flux.sh` to achieve this. You can edit the url in the script to target a specific device.
+
+Then, you have to capture packets to the hidden service. You can use the `skew_demo/tor_flux.sh` to achieve this. You can edit the tor hostname in the script to target a specific hidden service.
+
+Finally, you can run the skew calculation with the `skew_demo/skew_calc.py` script. This will calculate the skew between the two captured packets and print the result.
