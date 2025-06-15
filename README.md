@@ -46,7 +46,7 @@ python3 -m venv venv
 
 7. Install Python dependencies:
 ```bash
-pip install -r requirements.txt
+pip install -r web/requirements.txt
 ```
 
 ## Web Server
@@ -66,6 +66,9 @@ This will send a request to the web server and print the response.
 
 
 ## Skew demo
+
+First of all, install python dependencies in the previous env (`skew_demo/requirements.txt`).
+
 To run the skew demo, the web server must be running. Follow the previous steps to start the web server.
 
 The first step is to capture packets to the suspected device. You can use the `skew_demo/normal_flux.sh` to achieve this. You can edit the url in the script to target a specific device.
